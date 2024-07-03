@@ -117,7 +117,9 @@ Some build automations used in more complex projects are `make`, `cmake`, and `b
 
 #### Integrated development environment (IDEs)
 
+An IDE bundles the editor, compiler, linker, and debugger. 
 
+It makes it easy to develop, build and debug your programs.
 
 
 
