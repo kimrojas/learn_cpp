@@ -121,7 +121,101 @@ An IDE bundles the editor, compiler, linker, and debugger.
 
 It makes it easy to develop, build and debug your programs.
 
+## 0.7 — Compiling your first program
+
+**Project** is a container that holds all files associated with the thing you're doing (source files, datafiles, etc. )
+
+Instruction of VScode
+
+```
+To start a new project, go to the View > Explorer menu (or press Ctrl-Shift-E). This will open the explorer pane. If you haven’t previously opened a project, you should see an Open Folder button in the explorer pane -- press it. If there is already an open project and you want to start a new one, choose File > Open Folder from the top nav.
+
+Inside the dialog that opens, create a new folder named HelloWorld and then select this folder. This folder will be your project folder.
+
+Next, we need to create the file that will contain our source code. Choose File > New File from the top nav, or click the New File icon to the right of HELLOWORLD in the explorer pane.
+
+Name your file main.cpp and add the following contents to it:
+```
+
+## 0.8 — A few common C++ problems
+
+https://www.learncpp.com/cpp-tutorial/a-few-common-cpp-problems/
+
+Ask 
+1. search engines
+2. chatgpt via Bing
+
+## 0.9 — Configuring your compiler: Build configurations
+
+**Build configuration** - settings for how IDE will build the target
+
+**Debug configuration**
+- turns off all optimization
+- makes the program larger and slower, but easier to debug
+
+**Release configuration** 
+- designed for public release
+- optimal size and performance 
+- useful for testing
+
+For VScode
+
+in tasks.json
+
+Build
+- add `"-ggdb"` before `${file}`
+  
+Release
+- add `"-O2"` and `"-DNDEBUG"`  before  `${file}`
 
 
+## 0.10 — Configuring your compiler: Compiler extensions
+
+Disable compiler extensions since extensions are not compliant with C++ standards.
+
+In VSCODE
+
+- add `"-pedantic-errors"` before `${file}`
+- in vscode settings:
+  - search (in GUI): "insert final newline"
+  - activate checkbox: "Files Insert final Newline"
+  
+## 0.11 — Configuring your compiler: Warning and error levels
 
 
+**diagnostic message (diagnostic)** - violation of language rules
+
+**error** when compilation cannot continue due to violation
+
+> Best practice: fix warnings as you encounter it. 
+
+During learning: there are many levels of warnings. Use the maximum to help identify possible issues. 
+
+In VSCODE:
+
+add above `"${file}"`
+
+```
+"-Wall",
+"-Weffc++",
+"-Wextra",
+"-Wconversion",
+"-Wsign-conversion",
+```
+
+
+### Treating warnings as error
+
+In VSCODE,
+
+add `"-Werror"`
+
+## 0.12 — Configuring your compiler: Choosing a language standard
+
+Typically the default language standard is not the latest version (most default to C++14, which is lacking).
+
+documents target c++17 standard. I'm using c++20 via gcc-10/g++-11
+
+PrintStandard.cpp output:
+
+`Your compiler is using C++20 (language standard code 202002L)`
